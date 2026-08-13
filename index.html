@@ -48,130 +48,66 @@
     justify-content:center;
   }
 
+  /* TELA DE LOGIN FIREBASE */
+  #loginScreen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--sky);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+  }
+  .login-card {
+    background: var(--paper);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+    max-width: 320px;
+    width: 90%;
+  }
+  .btn-google {
+    width: 100%; padding: 12px; margin-top: 20px;
+    background: #fff; color: #3c4043; border: 1px solid #dadce0;
+    border-radius: 8px; font-weight: 600; font-size: 14px;
+    cursor: pointer; display: flex; align-items: center;
+    justify-content: center; gap: 10px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    transition: background 0.2s;
+  }
+  .btn-google:hover { background: #f8f9fa; }
+
   .container{ width:100%; max-width:460px; position: relative; }
 
-  /* Admin Toggle Button */
   #btnAdminToggle {
-    display: none;
-    position: absolute;
-    top: -15px;
-    right: 0;
-    background: var(--navy);
-    color: #fff;
-    border: none;
-    border-radius: var(--radius-sm);
-    padding: 8px 12px;
-    font-weight: 700;
-    font-size: 12px;
-    cursor: pointer;
-    box-shadow: var(--shadow-btn);
+    display: none; position: absolute; top: -15px; right: 0;
+    background: var(--navy); color: #fff; border: none;
+    border-radius: var(--radius-sm); padding: 8px 12px;
+    font-weight: 700; font-size: 12px; cursor: pointer; box-shadow: var(--shadow-btn);
   }
 
   .eyebrow{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    font-family:var(--font-body);
-    font-weight:700;
-    font-size:11.5px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--navy-light);
-    margin-bottom:8px;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    font-family:var(--font-body); font-weight:700; font-size:11.5px;
+    letter-spacing:0.14em; text-transform:uppercase; color:var(--navy-light); margin-bottom:8px;
   }
-  .eyebrow::before, .eyebrow::after{
-    content:"";
-    height:1px;
-    width:26px;
-    background:var(--line);
-  }
-
-  h1{
-    font-family:var(--font-display);
-    font-weight:700;
-    font-size:29px;
-    line-height:1.15;
-    text-align:center;
-    color:var(--navy-deep);
-    margin:0 0 6px;
-    letter-spacing:-0.01em;
-  }
-
+  .eyebrow::before, .eyebrow::after{ content:""; height:1px; width:26px; background:var(--line); }
+  h1{ font-family:var(--font-display); font-weight:700; font-size:29px; line-height:1.15; text-align:center; color:var(--navy-deep); margin:0 0 6px; letter-spacing:-0.01em; }
   .subtitle{ text-align:center; color:var(--muted); font-size:14px; margin:0 0 24px; }
 
-  /* Type Toggle (Vistoria vs Justificativa) */
-  .type-toggle {
-    display: flex;
-    background: #F1F4F8;
-    border-radius: 12px;
-    padding: 4px;
-    margin-bottom: 24px;
-  }
-  .type-btn {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    background: transparent;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 14px;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all .2s;
-  }
-  .type-btn.active {
-    background: #fff;
-    color: var(--navy-deep);
-    box-shadow: 0 2px 8px rgba(15,27,42,0.08);
-  }
+  .type-toggle { display: flex; background: #F1F4F8; border-radius: 12px; padding: 4px; margin-bottom: 24px; }
+  .type-btn { flex: 1; padding: 10px; border: none; background: transparent; border-radius: 10px; font-weight: 600; font-size: 14px; color: var(--muted); cursor: pointer; transition: all .2s; }
+  .type-btn.active { background: #fff; color: var(--navy-deep); box-shadow: 0 2px 8px rgba(15,27,42,0.08); }
 
-  .card{
-    background:var(--paper);
-    border:1px solid var(--line);
-    border-radius:var(--radius-lg);
-    box-shadow:var(--shadow-card);
-    padding:22px 20px 24px;
-  }
-
+  .card{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow:var(--shadow-card); padding:22px 20px 24px; }
   .field{ margin-bottom:18px; }
   .field:last-of-type{ margin-bottom:0; }
+  .field-label{ display:flex; align-items:center; gap:9px; font-weight:700; font-size:13.5px; color:var(--ink); margin-bottom:9px; }
+  .step-num{ flex:0 0 auto; width:19px; height:19px; border-radius:50%; background:var(--navy); color:#fff; font-family:var(--font-display); font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; }
 
-  .field-label{
-    display:flex;
-    align-items:center;
-    gap:9px;
-    font-weight:700;
-    font-size:13.5px;
-    color:var(--ink);
-    margin-bottom:9px;
-  }
-  .step-num{
-    flex:0 0 auto;
-    width:19px; height:19px;
-    border-radius:50%;
-    background:var(--navy);
-    color:#fff;
-    font-family:var(--font-display);
-    font-size:11px;
-    font-weight:700;
-    display:flex; align-items:center; justify-content:center;
-  }
-
-  .picker-btn{
-    width:100%;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    background:#F8FAFC;
-    border:1.5px solid var(--line);
-    border-radius:var(--radius-md);
-    padding:11px 12px;
-    cursor:pointer;
-    text-align:left;
-    transition:border-color .15s ease, background .15s ease, transform .08s ease;
-    font-family:var(--font-body);
-  }
+  .picker-btn{ width:100%; display:flex; align-items:center; gap:12px; background:#F8FAFC; border:1.5px solid var(--line); border-radius:var(--radius-md); padding:11px 12px; cursor:pointer; text-align:left; transition:border-color .15s ease, background .15s ease, transform .08s ease; font-family:var(--font-body); }
   .picker-btn:hover{ border-color:var(--navy-light); background:#F3F7FB; }
   .picker-btn:active{ transform:scale(0.99); }
   .picker-btn.filled{ border-color:var(--navy); background:#F1F6FB; }
@@ -179,52 +115,29 @@
   .picker-btn.shake{ animation:shake .32s ease; border-color:var(--red) !important; }
   @keyframes shake{ 0%,100%{ transform:translateX(0); } 25%{ transform:translateX(-4px); } 75%{ transform:translateX(4px); } }
 
-  .avatar{
-    flex:0 0 auto;
-    width:34px; height:34px;
-    border-radius:10px;
-    display:flex; align-items:center; justify-content:center;
-    color:#fff;
-    font-family:var(--font-display);
-    font-weight:700;
-    font-size:12.5px;
-  }
+  .avatar{ flex:0 0 auto; width:34px; height:34px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--font-display); font-weight:700; font-size:12.5px; }
   .avatar.placeholder{ background:#E4EAF1; color:#8DA0B5; }
   .avatar.school{ background:var(--navy); }
-
   .picker-text{ flex:1 1 auto; min-width:0; }
   .picker-title{ font-size:14.5px; font-weight:600; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .picker-btn:not(.filled):not(:disabled) .picker-title{ color:#8DA0B5; font-weight:500; }
   .picker-sub{ font-size:11.5px; color:var(--muted); margin-top:1px; }
   .chevron{ flex:0 0 auto; color:#AFBDCC; font-size:18px; line-height:1; }
 
-  input[type="datetime-local"], .admin-input, .admin-select, textarea.admin-input {
-    width:100%; padding:11px 12px; border:1.5px solid var(--line); border-radius:var(--radius-md);
-    font-size:14.5px; font-family:var(--font-body); color:var(--ink); background:#F8FAFC; margin-bottom: 10px;
-  }
-  input[type="datetime-local"]:focus, .admin-input:focus, .admin-select:focus, textarea.admin-input:focus {
-    outline:none; border-color:var(--navy-light); background:#fff;
-  }
+  input[type="datetime-local"], .admin-input, .admin-select, textarea.admin-input { width:100%; padding:11px 12px; border:1.5px solid var(--line); border-radius:var(--radius-md); font-size:14.5px; font-family:var(--font-body); color:var(--ink); background:#F8FAFC; margin-bottom: 10px; }
+  input[type="datetime-local"]:focus, .admin-input:focus, .admin-select:focus, textarea.admin-input:focus { outline:none; border-color:var(--navy-light); background:#fff; }
   textarea.admin-input { resize: vertical; min-height: 80px; }
 
   .chip-group{ display:flex; gap:8px; flex-wrap:wrap; }
   .chip-group input[type="radio"]{ position:absolute; opacity:0; width:1px; height:1px; pointer-events:none; }
-  .chip{
-    flex:1 1 auto; display:flex; align-items:center; justify-content:center; gap:6px;
-    padding:10px 8px; border-radius:var(--radius-sm); border:1.5px solid var(--line);
-    background:#F8FAFC; color:var(--muted); font-weight:600; font-size:13px; cursor:pointer; transition:all .15s ease;
-  }
+  .chip{ flex:1 1 auto; display:flex; align-items:center; justify-content:center; gap:6px; padding:10px 8px; border-radius:var(--radius-sm); border:1.5px solid var(--line); background:#F8FAFC; color:var(--muted); font-weight:600; font-size:13px; cursor:pointer; transition:all .15s ease; }
   .chip svg{ width:14px; height:14px; flex:0 0 auto; }
   .chip:hover{ border-color:#C7D3E0; }
   input#stRealizada:checked + .chip{ background:var(--green-bg); border-color:var(--green); color:var(--green); }
   input#stCancelada:checked + .chip{ background:var(--red-bg); border-color:var(--red); color:var(--red); }
   input#stAdiada:checked + .chip{ background:var(--amber-bg); border-color:var(--amber); color:#A66C11; }
 
-  .btn-submit, .btn-admin-action, .btn-confirm {
-    width:100%; padding:14px; border:none; border-radius:var(--radius-md); background:var(--navy);
-    color:#fff; font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:0.01em;
-    cursor:pointer; box-shadow:var(--shadow-btn); transition:transform .08s ease, opacity .15s ease, background .15s ease;
-  }
+  .btn-submit, .btn-admin-action, .btn-confirm { width:100%; padding:14px; border:none; border-radius:var(--radius-md); background:var(--navy); color:#fff; font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:0.01em; cursor:pointer; box-shadow:var(--shadow-btn); transition:transform .08s ease, opacity .15s ease, background .15s ease; }
   .btn-submit{ margin-top:22px; }
   .btn-admin-action { padding: 10px; font-size: 14px; margin-bottom: 20px;}
   .btn-confirm { box-shadow: none; border-radius: 10px; }
@@ -236,43 +149,24 @@
 
   .footnote{ text-align:center; font-size:11.5px; color:#9AA9BA; margin-top:16px; }
 
-  .sheet-overlay{
-    position:fixed; inset:0; background:rgba(15,27,42,0.45); backdrop-filter:blur(2px);
-    display:flex; align-items:flex-end; justify-content:center; opacity:0; pointer-events:none;
-    transition:opacity .22s ease; z-index:50;
-  }
+  .sheet-overlay{ position:fixed; inset:0; background:rgba(15,27,42,0.45); backdrop-filter:blur(2px); display:flex; align-items:flex-end; justify-content:center; opacity:0; pointer-events:none; transition:opacity .22s ease; z-index:50; }
   .sheet-overlay.open{ opacity:1; pointer-events:auto; }
-
-  .sheet{
-    width:100%; max-width:460px; max-height:85vh; background:var(--paper); border-radius:22px 22px 0 0;
-    box-shadow:0 -20px 50px rgba(15,27,42,0.35); display:flex; flex-direction:column;
-    transform:translateY(100%); transition:transform .28s cubic-bezier(.32,.72,0,1);
-  }
+  .sheet{ width:100%; max-width:460px; max-height:85vh; background:var(--paper); border-radius:22px 22px 0 0; box-shadow:0 -20px 50px rgba(15,27,42,0.35); display:flex; flex-direction:column; transform:translateY(100%); transition:transform .28s cubic-bezier(.32,.72,0,1); }
   .sheet-overlay.open .sheet{ transform:translateY(0); }
   .sheet-handle{ width:38px; height:4px; background:var(--line); border-radius:99px; margin:10px auto 4px; }
-
   .sheet-header{ display:flex; align-items:center; justify-content:space-between; padding:10px 18px 4px; }
   .sheet-header h2{ font-family:var(--font-display); font-size:17px; font-weight:700; color:var(--navy-deep); margin:0; }
-  .sheet-close{
-    width:28px; height:28px; border-radius:50%; border:none; background:#F1F4F8; color:var(--muted);
-    font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center;
-  }
+  .sheet-close{ width:28px; height:28px; border-radius:50%; border:none; background:#F1F4F8; color:var(--muted); font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
   .sheet-close:hover{ background:#E4EAF1; }
 
   .sheet-search-wrap{ padding:10px 18px 6px; }
-  .sheet-search{
-    width:100%; padding:10px 12px; border-radius:var(--radius-sm); border:1.5px solid var(--line);
-    background:#F8FAFC; font-size:14px; font-family:var(--font-body);
-  }
+  .sheet-search{ width:100%; padding:10px 12px; border-radius:var(--radius-sm); border:1.5px solid var(--line); background:#F8FAFC; font-size:14px; font-family:var(--font-body); }
   .sheet-search:focus{ outline:none; border-color:var(--navy-light); background:#fff; }
 
   .sheet-list, .sheet-admin-content { overflow-y:auto; padding:6px 18px 18px; flex: 1; }
   .sheet-footer { padding: 10px 18px 20px; border-top: 1px solid var(--line); display: none; }
   
-  .sheet-item{
-    display:flex; align-items:center; gap:12px; width:100%; padding:10px 8px; border:none; background:none;
-    border-radius:var(--radius-sm); cursor:pointer; text-align:left; font-family:var(--font-body);
-  }
+  .sheet-item{ display:flex; align-items:center; gap:12px; width:100%; padding:10px 8px; border:none; background:none; border-radius:var(--radius-sm); cursor:pointer; text-align:left; font-family:var(--font-body); }
   .sheet-item:hover{ background:#F3F7FB; }
   .sheet-item.selected{ background:#EAF1F9; }
   .sheet-item .avatar{ width:32px; height:32px; font-size:11.5px; border-radius:9px; }
@@ -284,19 +178,25 @@
   .admin-section:last-child { border-bottom: none; }
   .admin-title { font-size: 14px; font-weight: 700; margin-bottom: 10px; color: var(--navy-deep); }
 
-  .toast{
-    position:fixed; left:50%; bottom:22px; transform:translate(-50%, 20px); background:var(--navy-deep);
-    color:#fff; padding:12px 18px; border-radius:99px; font-size:13.5px; font-weight:600;
-    display:flex; align-items:center; gap:8px; box-shadow:0 12px 30px -8px rgba(15,27,42,0.5);
-    opacity:0; pointer-events:none; transition:all .25s ease; z-index:60; max-width:90vw;
-  }
+  .toast{ position:fixed; left:50%; bottom:22px; transform:translate(-50%, 20px); background:var(--navy-deep); color:#fff; padding:12px 18px; border-radius:99px; font-size:13.5px; font-weight:600; display:flex; align-items:center; gap:8px; box-shadow:0 12px 30px -8px rgba(15,27,42,0.5); opacity:0; pointer-events:none; transition:all .25s ease; z-index:60; max-width:90vw; }
   .toast.show{ opacity:1; transform:translate(-50%, 0); }
   .toast.success{ background:var(--green); }
   .toast.error{ background:var(--red); }
-
 </style>
 </head>
 <body>
+
+<!-- TELA DE LOGIN FIREBASE (Oculta o app até autenticar) -->
+<div id="loginScreen">
+    <div class="login-card">
+        <h1 style="font-size: 24px; margin-bottom: 5px;">Acesso Restrito</h1>
+        <p class="subtitle" style="margin-bottom: 15px;">Sistema URE</p>
+        <button id="btnGoogleLogin" class="btn-google">
+            <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+            Entrar com o Google
+        </button>
+    </div>
+</div>
 
 <div class="container">
   <button id="btnAdminToggle">⚙️ Admin</button>
@@ -366,11 +266,9 @@
       </div>
 
       <input type="hidden" id="supervisorValue" name="supervisor">
-      
       <button type="submit" class="btn-submit" id="btnSalvar">Salvar Vistoria</button>
     </form>
   </div>
-
   <p class="footnote">Os dados são enviados automaticamente para a planilha da URE.</p>
 </div>
 
@@ -386,7 +284,6 @@
       <input type="text" class="sheet-search" id="sheetSearch" placeholder="Buscar...">
     </div>
     <div class="sheet-list" id="sheetList"></div>
-    <!-- Footer para confirmar múltipla seleção -->
     <div class="sheet-footer" id="sheetFooter">
         <button type="button" class="btn-confirm" id="btnConfirmEscolas">Confirmar Seleção</button>
     </div>
@@ -420,8 +317,8 @@
         </div>
         <div class="admin-section">
             <div class="admin-title">❌ Remover Escola de Supervisor</div>
-            <select id="delEscolaSupSelect" class="admin-select"><option value="">1º Selecione o supervisor...</option></select>
-            <select id="delEscolaSelect" class="admin-select" disabled><option value="">2º Selecione a escola...</option></select>
+            <select id="delEscolaSupSelect" class="admin-select"><option value="">1º Selecione...</option></select>
+            <select id="delEscolaSelect" class="admin-select" disabled><option value="">2º Selecione...</option></select>
             <button type="button" class="btn-admin-action btn-admin-danger" id="btnDelEscola">Excluir Escola</button>
         </div>
     </div>
@@ -430,8 +327,53 @@
 
 <div class="toast" id="toast"></div>
 
-<script>
-  // COLOQUE SUA URL AQUI
+<!-- Lógica do Firebase Modular e do Aplicativo -->
+<script type="module">
+  // 1. IMPORTAÇÕES DO FIREBASE
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+  // 2. COLE SUAS CREDENCIAIS DO FIREBASE AQUI
+  const firebaseConfig = {
+    apiKey: "COLE_SUA_API_KEY_AQUI",
+    authDomain: "seu-projeto.firebaseapp.com",
+    projectId: "seu-projeto",
+    storageBucket: "seu-projeto.appspot.com",
+    messagingSenderId: "COLE_AQUI",
+    appId: "COLE_AQUI"
+  };
+
+  // Inicializa a autenticação
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  const loginScreen = document.getElementById('loginScreen');
+  const btnGoogleLogin = document.getElementById('btnGoogleLogin');
+
+  btnGoogleLogin.addEventListener('click', () => {
+    btnGoogleLogin.innerHTML = 'Autenticando...';
+    signInWithPopup(auth, provider).catch((error) => {
+        console.error("Erro no login:", error);
+        btnGoogleLogin.innerHTML = 'Tentar Novamente';
+    });
+  });
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // Logado! Remove a tela de bloqueio
+      loginScreen.style.opacity = '0';
+      setTimeout(() => { loginScreen.style.display = 'none'; }, 500);
+      console.log("Logado como:", user.email);
+    } else {
+      loginScreen.style.display = 'flex';
+      loginScreen.style.opacity = '1';
+    }
+  });
+
+  // ==========================================
+  // LÓGICA DO APLICATIVO (IGUAL A ANTERIOR)
+  // ==========================================
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbymq_CP20Qcnp558XV_21FpyrdpYNV12bE9T4MMwvvMYkorgjknw66oJaTjjeR6RGHj/exec';
 
   const defaultDatabase = {
@@ -464,10 +406,9 @@
   const urlParams = new URLSearchParams(window.location.search);
   if(urlParams.get('admin') === 'true') { document.getElementById('btnAdminToggle').style.display = 'block'; }
 
-  // Estados Globais
   let isJustificativaMode = false;
   let selectedSupervisor = null;
-  let selectedEscolas = []; // Agora é um Array para suportar múltipla seleção
+  let selectedEscolas = [];
   let sheetMode = null; 
   let currentItems = [];
 
@@ -496,61 +437,40 @@
   const sheetFooter = document.getElementById('sheetFooter');
   const toast = document.getElementById('toast');
 
-  // Alternar entre Vistoria e Justificativa
   btnTypeVistoria.addEventListener('click', () => {
     isJustificativaMode = false;
-    btnTypeVistoria.classList.add('active');
-    btnTypeJustificativa.classList.remove('active');
-    fieldStatus.style.display = 'block';
-    fieldJustificativa.style.display = 'none';
+    btnTypeVistoria.classList.add('active'); btnTypeJustificativa.classList.remove('active');
+    fieldStatus.style.display = 'block'; fieldJustificativa.style.display = 'none';
     btnSalvar.textContent = 'Salvar Vistoria';
   });
 
   btnTypeJustificativa.addEventListener('click', () => {
     isJustificativaMode = true;
-    btnTypeJustificativa.classList.add('active');
-    btnTypeVistoria.classList.remove('active');
-    fieldStatus.style.display = 'none';
-    fieldJustificativa.style.display = 'block';
+    btnTypeJustificativa.classList.add('active'); btnTypeVistoria.classList.remove('active');
+    fieldStatus.style.display = 'none'; fieldJustificativa.style.display = 'block';
     btnSalvar.textContent = 'Enviar Justificativa';
   });
 
   function setLocalTime(){
-    const agora = new Date();
-    agora.setMinutes(agora.getMinutes() - agora.getTimezoneOffset());
+    const agora = new Date(); agora.setMinutes(agora.getMinutes() - agora.getTimezoneOffset());
     inputDataHora.value = agora.toISOString().slice(0,16);
   }
 
   function hashHue(str){ let h = 0; for (let i=0; i<str.length; i++){ h = str.charCodeAt(i) + ((h<<5)-h); } return Math.abs(h)%360; }
-  function initials(name){
-    const words = name.replace(/[^\p{L}\s]/gu,'').trim().split(/\s+/).filter(Boolean);
-    if (words.length === 0) return '?';
-    if (words.length === 1) return words[0].slice(0,2).toUpperCase();
-    return (words[0][0] + words[1][0]).toUpperCase();
-  }
+  function initials(name){ const words = name.replace(/[^\p{L}\s]/gu,'').trim().split(/\s+/).filter(Boolean); if (words.length === 0) return '?'; if (words.length === 1) return words[0].slice(0,2).toUpperCase(); return (words[0][0] + words[1][0]).toUpperCase(); }
   function normalize(str){ return str.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(); }
-  function showToast(message, type){
-    toast.textContent = message; toast.className = 'toast show ' + (type||'');
-    clearTimeout(showToast._t); showToast._t = setTimeout(() => { toast.classList.remove('show'); }, 3200);
-  }
+  function showToast(message, type){ toast.textContent = message; toast.className = 'toast show ' + (type||''); setTimeout(() => { toast.classList.remove('show'); }, 3200); }
 
-  // Bottom Sheet Lógica
   function openSheet(mode){
-    sheetMode = mode;
-    sheetSearch.value = '';
+    sheetMode = mode; sheetSearch.value = '';
     if (mode === 'supervisor'){
-      sheetTitle.textContent = 'Selecione o supervisor(a)';
-      sheetSearch.placeholder = 'Buscar supervisor...';
-      sheetFooter.style.display = 'none';
+      sheetTitle.textContent = 'Selecione o supervisor(a)'; sheetSearch.placeholder = 'Buscar supervisor...'; sheetFooter.style.display = 'none';
       currentItems = Object.keys(database).sort();
     } else {
-      sheetTitle.textContent = 'Selecione a(s) escola(s)';
-      sheetSearch.placeholder = 'Buscar escola...';
-      sheetFooter.style.display = 'block'; // Mostra botão de confirmar múltipla seleção
+      sheetTitle.textContent = 'Selecione a(s) escola(s)'; sheetSearch.placeholder = 'Buscar escola...'; sheetFooter.style.display = 'block'; 
       currentItems = database[selectedSupervisor] || [];
     }
-    renderSheetList(currentItems);
-    sheetOverlay.classList.add('open');
+    renderSheetList(currentItems); sheetOverlay.classList.add('open');
     setTimeout(() => sheetSearch.focus({ preventScroll:true }), 260);
   }
 
@@ -558,187 +478,89 @@
 
   function renderSheetList(items){
     sheetList.innerHTML = '';
-    
-    // Se for Escola, adiciona o botão "Selecionar Todas" no topo
     if (sheetMode === 'escola') {
         const allSelected = items.length > 0 && selectedEscolas.length === items.length;
         const rowTodas = document.createElement('button');
-        rowTodas.type = 'button';
-        rowTodas.className = 'sheet-item' + (allSelected ? ' selected' : '');
-        rowTodas.innerHTML = `<span class="avatar school" style="background:var(--navy)">🏫</span>
-                              <span class="sheet-item-name" style="font-weight:700;">Selecionar Todas</span>
-                              ${allSelected ? '<span class="check">✓</span>' : ''}`;
-        rowTodas.addEventListener('click', () => {
-            if (allSelected) selectedEscolas = []; // Desmarca todas
-            else selectedEscolas = [...items]; // Marca todas
-            renderSheetList(items);
-        });
+        rowTodas.type = 'button'; rowTodas.className = 'sheet-item' + (allSelected ? ' selected' : '');
+        rowTodas.innerHTML = `<span class="avatar school" style="background:var(--navy)">🏫</span><span class="sheet-item-name" style="font-weight:700;">Selecionar Todas</span>${allSelected ? '<span class="check">✓</span>' : ''}`;
+        rowTodas.addEventListener('click', () => { if (allSelected) selectedEscolas = []; else selectedEscolas = [...items]; renderSheetList(items); });
         sheetList.appendChild(rowTodas);
     }
-
-    if (items.length === 0){
-      sheetList.innerHTML = '<div class="sheet-empty">Nenhum resultado encontrado.</div>';
-      return;
-    }
-
+    if (items.length === 0){ sheetList.innerHTML = '<div class="sheet-empty">Nenhum resultado encontrado.</div>'; return; }
     items.forEach(item => {
-      const isSelected = (sheetMode === 'supervisor' && item === selectedSupervisor) ||
-                         (sheetMode === 'escola' && selectedEscolas.includes(item));
-                         
-      const row = document.createElement('button');
-      row.type = 'button';
-      row.className = 'sheet-item' + (isSelected ? ' selected' : '');
-
-      const av = document.createElement('span');
-      av.className = 'avatar';
+      const isSelected = (sheetMode === 'supervisor' && item === selectedSupervisor) || (sheetMode === 'escola' && selectedEscolas.includes(item));
+      const row = document.createElement('button'); row.type = 'button'; row.className = 'sheet-item' + (isSelected ? ' selected' : '');
+      const av = document.createElement('span'); av.className = 'avatar';
       av.style.background = sheetMode === 'supervisor' ? `hsl(${hashHue(item)}, 55%, 40%)` : '#E4EAF1';
-      av.style.color = sheetMode === 'supervisor' ? '#fff' : '#8DA0B5';
-      av.textContent = sheetMode === 'supervisor' ? initials(item) : '🏫';
-
-      const name = document.createElement('span');
-      name.className = 'sheet-item-name';
-      name.textContent = item;
-
-      row.appendChild(av);
-      row.appendChild(name);
-      if (isSelected) row.innerHTML += '<span class="check">✓</span>';
-
+      av.style.color = sheetMode === 'supervisor' ? '#fff' : '#8DA0B5'; av.textContent = sheetMode === 'supervisor' ? initials(item) : '🏫';
+      const name = document.createElement('span'); name.className = 'sheet-item-name'; name.textContent = item;
+      row.appendChild(av); row.appendChild(name); if (isSelected) row.innerHTML += '<span class="check">✓</span>';
       row.addEventListener('click', () => {
-        if (sheetMode === 'supervisor') {
-            selectSupervisor(item);
-        } else {
-            // Múltipla seleção para Escolas
-            if (selectedEscolas.includes(item)) {
-                selectedEscolas = selectedEscolas.filter(e => e !== item);
-            } else {
-                selectedEscolas.push(item);
-            }
-            renderSheetList(items);
-        }
+        if (sheetMode === 'supervisor') { selectSupervisor(item); } else { if (selectedEscolas.includes(item)) { selectedEscolas = selectedEscolas.filter(e => e !== item); } else { selectedEscolas.push(item); } renderSheetList(items); }
       });
       sheetList.appendChild(row);
     });
   }
 
-  // Botão Confirmar Múltiplas Escolas
   document.getElementById('btnConfirmEscolas').addEventListener('click', () => {
-      if (selectedEscolas.length === 0) {
-          showToast('Selecione pelo menos uma escola.', 'error');
-          return;
-      }
-      closeSheet();
-      updateEscolaButton();
+      if (selectedEscolas.length === 0) { showToast('Selecione pelo menos uma escola.', 'error'); return; }
+      closeSheet(); updateEscolaButton();
   });
 
-  sheetSearch.addEventListener('input', () => {
-    const q = normalize(sheetSearch.value);
-    const filtered = currentItems.filter(i => normalize(i).includes(q));
-    renderSheetList(filtered);
-  });
-
-  sheetClose.addEventListener('click', closeSheet);
-  sheetOverlay.addEventListener('click', (e) => { if (e.target === sheetOverlay) closeSheet(); });
+  sheetSearch.addEventListener('input', () => { const q = normalize(sheetSearch.value); const filtered = currentItems.filter(i => normalize(i).includes(q)); renderSheetList(filtered); });
+  sheetClose.addEventListener('click', closeSheet); sheetOverlay.addEventListener('click', (e) => { if (e.target === sheetOverlay) closeSheet(); });
 
   function selectSupervisor(name){
-    selectedSupervisor = name;
-    selectedEscolas = []; // Zera as escolas ao trocar de supervisor
-    supervisorValue.value = name;
-
-    avatarSupervisor.className = 'avatar';
-    avatarSupervisor.style.background = `hsl(${hashHue(name)}, 55%, 40%)`;
-    avatarSupervisor.textContent = initials(name);
-    txtSupervisor.textContent = name;
-    btnSupervisor.classList.add('filled');
-
-    btnEscola.disabled = false;
-    avatarEscola.className = 'avatar placeholder';
-    avatarEscola.style.background = '';
-    avatarEscola.textContent = '·';
-    txtEscola.textContent = 'Toque para escolher';
-    btnEscola.classList.remove('filled');
-
-    closeSheet();
-    setTimeout(() => openSheet('escola'), 300);
+    selectedSupervisor = name; selectedEscolas = []; supervisorValue.value = name;
+    avatarSupervisor.className = 'avatar'; avatarSupervisor.style.background = `hsl(${hashHue(name)}, 55%, 40%)`; avatarSupervisor.textContent = initials(name);
+    txtSupervisor.textContent = name; btnSupervisor.classList.add('filled');
+    btnEscola.disabled = false; avatarEscola.className = 'avatar placeholder'; avatarEscola.style.background = ''; avatarEscola.textContent = '·'; txtEscola.textContent = 'Toque para escolher'; btnEscola.classList.remove('filled');
+    closeSheet(); setTimeout(() => openSheet('escola'), 300);
   }
 
   function updateEscolaButton(){
-    avatarEscola.className = 'avatar school';
-    avatarEscola.textContent = '🏫';
-    avatarEscola.style.fontSize = '13px';
-    
+    avatarEscola.className = 'avatar school'; avatarEscola.textContent = '🏫'; avatarEscola.style.fontSize = '13px';
     const totalDoSupervisor = database[selectedSupervisor].length;
-    if (selectedEscolas.length === totalDoSupervisor && totalDoSupervisor > 0) {
-        txtEscola.textContent = 'Todas as escolas selecionadas';
-    } else if (selectedEscolas.length === 1) {
-        txtEscola.textContent = selectedEscolas[0];
-    } else {
-        txtEscola.textContent = selectedEscolas.length + ' escolas selecionadas';
-    }
-    
+    if (selectedEscolas.length === totalDoSupervisor && totalDoSupervisor > 0) { txtEscola.textContent = 'Todas as escolas selecionadas'; } else if (selectedEscolas.length === 1) { txtEscola.textContent = selectedEscolas[0]; } else { txtEscola.textContent = selectedEscolas.length + ' escolas selecionadas'; }
     btnEscola.classList.add('filled');
   }
 
   btnSupervisor.addEventListener('click', () => openSheet('supervisor'));
   btnEscola.addEventListener('click', () => { if (!btnEscola.disabled) openSheet('escola'); });
-
   function shakeButton(btn){ btn.classList.remove('shake'); void btn.offsetWidth; btn.classList.add('shake'); }
 
-  // Submit Final
   form.addEventListener('submit', function(e){
     e.preventDefault();
-
-    if (!selectedSupervisor){ showToast('Selecione o supervisor(a).', 'error'); shakeButton(btnSupervisor); return; }
-    if (selectedEscolas.length === 0){ showToast('Selecione a(s) escola(s).', 'error'); shakeButton(btnEscola); return; }
-    if (!inputDataHora.value){ showToast('Informe a data e hora.', 'error'); return; }
+    if (!selectedSupervisor){ showToast('Selecione o supervisor.', 'error'); shakeButton(btnSupervisor); return; }
+    if (selectedEscolas.length === 0){ showToast('Selecione as escolas.', 'error'); shakeButton(btnEscola); return; }
+    if (!inputDataHora.value){ showToast('Informe a data.', 'error'); return; }
     
     const formData = new FormData(form);
-
     if (isJustificativaMode) {
         if (!txtJustificativa.value.trim()) { showToast('Escreva a justificativa.', 'error'); txtJustificativa.focus(); return; }
         formData.set('status', 'Justificada'); 
     } else {
         const statusChecked = form.querySelector('input[name="status"]:checked');
-        if (!statusChecked){ showToast('Selecione o status da visita.', 'error'); return; }
+        if (!statusChecked){ showToast('Selecione o status.', 'error'); return; }
     }
 
-    // Passa o array de escolas separadas por vírgula para o Google Sheets processar
     formData.set('escola', selectedEscolas.join(', '));
-
-    btnSalvar.textContent = 'Salvando na nuvem...';
-    btnSalvar.disabled = true;
+    btnSalvar.textContent = 'Salvando na nuvem...'; btnSalvar.disabled = true;
 
     fetch(SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
     .then(() => {
-      showToast('Registro salvo com sucesso!', 'success');
-      form.reset();
-      setLocalTime();
-      
-      selectedSupervisor = null;
-      selectedEscolas = [];
-      supervisorValue.value = '';
-
-      avatarSupervisor.className = 'avatar placeholder'; avatarSupervisor.style.background = '';
-      avatarSupervisor.textContent = '?'; txtSupervisor.textContent = 'Toque para escolher';
-      btnSupervisor.classList.remove('filled');
-
-      btnEscola.disabled = true; avatarEscola.className = 'avatar placeholder';
-      avatarEscola.style.background = ''; avatarEscola.textContent = '·';
-      txtEscola.textContent = 'Escolha o supervisor primeiro'; btnEscola.classList.remove('filled');
-
-      btnSalvar.textContent = isJustificativaMode ? 'Enviar Justificativa' : 'Salvar Vistoria';
-      btnSalvar.disabled = false;
+      showToast('Registro salvo!', 'success'); form.reset(); setLocalTime();
+      selectedSupervisor = null; selectedEscolas = []; supervisorValue.value = '';
+      avatarSupervisor.className = 'avatar placeholder'; avatarSupervisor.style.background = ''; avatarSupervisor.textContent = '?'; txtSupervisor.textContent = 'Toque para escolher'; btnSupervisor.classList.remove('filled');
+      btnEscola.disabled = true; avatarEscola.className = 'avatar placeholder'; avatarEscola.style.background = ''; avatarEscola.textContent = '·'; txtEscola.textContent = 'Escolha o supervisor primeiro'; btnEscola.classList.remove('filled');
+      btnSalvar.textContent = isJustificativaMode ? 'Enviar Justificativa' : 'Salvar Vistoria'; btnSalvar.disabled = false;
     })
-    .catch(error => {
-      console.error('Erro!', error.message);
-      showToast('Erro ao salvar. Tente novamente.', 'error');
-      btnSalvar.textContent = isJustificativaMode ? 'Enviar Justificativa' : 'Salvar Vistoria';
-      btnSalvar.disabled = false;
-    });
+    .catch(error => { console.error(error); showToast('Erro ao salvar.', 'error'); btnSalvar.disabled = false; });
   });
 
   setLocalTime();
 
-  // --- Funções Admin Ocultas ---
+  // Admin Scripts
   const adminOverlay = document.getElementById('adminOverlay');
   const adminClose = document.getElementById('adminClose');
   const delSupSelect = document.getElementById('delSupSelect');
@@ -749,36 +571,30 @@
   function updateAdminSelects() {
     const supervisores = Object.keys(database).sort();
     const selects = [delSupSelect, addEscolaSupSelect, delEscolaSupSelect];
-    selects.forEach(select => {
-        select.innerHTML = '<option value="">Selecione o supervisor...</option>';
-        supervisores.forEach(sup => { select.appendChild(new Option(sup, sup)); });
-    });
-    delEscolaSelect.innerHTML = '<option value="">2º Selecione a escola...</option>'; delEscolaSelect.disabled = true;
+    selects.forEach(select => { select.innerHTML = '<option value="">Selecione...</option>'; supervisores.forEach(sup => { select.appendChild(new Option(sup, sup)); }); });
+    delEscolaSelect.innerHTML = '<option value="">2º Selecione...</option>'; delEscolaSelect.disabled = true;
   }
 
   document.getElementById('btnAdminToggle').addEventListener('click', () => { updateAdminSelects(); adminOverlay.classList.add('open'); });
   adminClose.addEventListener('click', () => { adminOverlay.classList.remove('open'); });
-  
   delEscolaSupSelect.addEventListener('change', function() {
-    const sup = this.value; delEscolaSelect.innerHTML = '<option value="">2º Selecione a escola...</option>';
+    const sup = this.value; delEscolaSelect.innerHTML = '<option value="">2º Selecione...</option>';
     if (sup && database[sup]) { database[sup].forEach(esc => { delEscolaSelect.appendChild(new Option(esc, esc)); }); delEscolaSelect.disabled = false; } else { delEscolaSelect.disabled = true; }
   });
-
   document.getElementById('btnAddSup').addEventListener('click', () => {
       const name = document.getElementById('addSupName').value.trim().toUpperCase();
-      if(name && !database[name]) { database[name] = []; saveDatabase(); updateAdminSelects(); document.getElementById('addSupName').value = ''; showToast('Supervisor adicionado!', 'success'); }
+      if(name && !database[name]) { database[name] = []; saveDatabase(); updateAdminSelects(); document.getElementById('addSupName').value = ''; showToast('Adicionado!', 'success'); }
   });
   document.getElementById('btnDelSup').addEventListener('click', () => {
-      const name = delSupSelect.value;
-      if(name && confirm(`Deseja excluir o supervisor ${name}?`)) { delete database[name]; saveDatabase(); updateAdminSelects(); showToast('Supervisor excluído.', 'success'); }
+      const name = delSupSelect.value; if(name && confirm(`Excluir ${name}?`)) { delete database[name]; saveDatabase(); updateAdminSelects(); showToast('Excluído.', 'success'); }
   });
   document.getElementById('btnAddEscola').addEventListener('click', () => {
       const sup = addEscolaSupSelect.value, esc = document.getElementById('addEscolaName').value.trim();
-      if(sup && esc && !database[sup].includes(esc)) { database[sup].push(esc); saveDatabase(); document.getElementById('addEscolaName').value = ''; showToast('Escola adicionada!', 'success'); }
+      if(sup && esc && !database[sup].includes(esc)) { database[sup].push(esc); saveDatabase(); document.getElementById('addEscolaName').value = ''; showToast('Adicionada!', 'success'); }
   });
   document.getElementById('btnDelEscola').addEventListener('click', () => {
       const sup = delEscolaSupSelect.value, esc = delEscolaSelect.value;
-      if(sup && esc && confirm(`Excluir a escola ${esc}?`)) { database[sup] = database[sup].filter(e => e !== esc); saveDatabase(); delEscolaSupSelect.dispatchEvent(new Event('change')); showToast('Escola excluída.', 'success'); }
+      if(sup && esc && confirm(`Excluir ${esc}?`)) { database[sup] = database[sup].filter(e => e !== esc); saveDatabase(); delEscolaSupSelect.dispatchEvent(new Event('change')); showToast('Excluída.', 'success'); }
   });
 </script>
 
