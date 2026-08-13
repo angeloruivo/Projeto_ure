@@ -79,6 +79,18 @@
   }
   .btn-google:hover { background: #f8f9fa; }
 
+  .user-badge {
+    position: absolute;
+    top: -15px;
+    left: 0;
+    font-size: 11px;
+    background: #e2e8f0;
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
   .container{ width:100%; max-width:460px; position: relative; }
 
   #btnAdminToggle {
@@ -199,6 +211,7 @@
 </div>
 
 <div class="container">
+  <div class="user-badge" id="userBadge">Carregando usuário...</div>
   <button id="btnAdminToggle">⚙️ Admin</button>
 
   <p class="eyebrow">Controle de campo · URE</p>
@@ -327,12 +340,11 @@
 
 <div class="toast" id="toast"></div>
 
-<!-- Lógica do Firebase com as chaves reais inseridas -->
+<!-- Lógica do Firebase Modular -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-  // Configuração oficial do Firebase integrada
   const firebaseConfig = {
     apiKey: "AIzaSyDs12xgOEPIKu7pNjftNUThM0_-Z0BwoLY",
     authDomain: "projetoure.firebaseapp.com",
@@ -348,8 +360,9 @@
 
   const loginScreen = document.getElementById('loginScreen');
   const btnGoogleLogin = document.getElementById('btnGoogleLogin');
+  const userBadge = document.getElementById('userBadge');
 
-  let loggedUserEmail = "";
+  window.loggedUserEmail = "";
 
   btnGoogleLogin.addEventListener('click', () => {
     btnGoogleLogin.innerHTML = 'Autenticando...';
@@ -365,15 +378,18 @@
     if (user) {
       loginScreen.style.opacity = '0';
       setTimeout(() => { loginScreen.style.display = 'none'; }, 500);
-      loggedUserEmail = user.email;
-      console.log("Logado com sucesso:", loggedUserEmail);
+      window.loggedUserEmail = user.email;
+      userBadge.textContent = "👤 " + user.email;
+      console.log("Logado como:", window.loggedUserEmail);
     } else {
       loginScreen.style.display = 'flex';
       loginScreen.style.opacity = '1';
-      loggedUserEmail = "";
+      window.loggedUserEmail = "";
     }
   });
+</script>
 
+<script>
   // ==========================================
   // LÓGICA DO APLICATIVO DA URE
   // ==========================================
@@ -415,6 +431,7 @@
   let sheetMode = null; 
   let currentItems = [];
 
+  const form = document.getElementById('vistoriaForm');
   const btnTypeVistoria = document.getElementById('btnTypeVistoria');
   const btnTypeJustificativa = document.getElementById('btnTypeJustificativa');
   const fieldStatus = document.getElementById('fieldStatus');
@@ -539,8 +556,8 @@
     
     const formData = new FormData(form);
     
-    // Injeta o e-mail do usuário autenticado via Google no formulário
-    formData.append('emailUser', loggedUserEmail);
+    // Injeta o e-mail do usuário logado via Google
+    formData.append('emailUser', window.loggedUserEmail || "Não Identificado");
 
     if (isJustificativaMode) {
         if (!txtJustificativa.value.trim()) { showToast('Escreva a justificativa.', 'error'); txtJustificativa.focus(); return; }
@@ -555,7 +572,7 @@
 
     fetch(SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
     .then(() => {
-      showToast('Registro salvo!', 'success'); form.reset(); setLocalTime();
+      showToast('Registro salvo com sucesso!', 'success'); form.reset(); setLocalTime();
       selectedSupervisor = null; selectedEscolas = []; supervisorValue.value = '';
       avatarSupervisor.className = 'avatar placeholder'; avatarSupervisor.style.background = ''; avatarSupervisor.textContent = '?'; txtSupervisor.textContent = 'Toque para escolher'; btnSupervisor.classList.remove('filled');
       btnEscola.disabled = true; avatarEscola.className = 'avatar placeholder'; avatarEscola.style.background = ''; avatarEscola.textContent = '·'; txtEscola.textContent = 'Escolha o supervisor primeiro'; btnEscola.classList.remove('filled');
